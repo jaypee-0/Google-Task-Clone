@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar'
-import { SafeAreaProvider } from 'react-native-safe-area-context'
+import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context'
 import { Provider } from 'react-redux'
 import {
   useFonts,
@@ -45,9 +45,13 @@ export default function App() {
       <SafeAreaProvider>
         <Provider store={store}>
           <PersistGate loading={null} persistor={persistor}>
-            <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : 'height'} style={{ flex: 1 }} keyboardVerticalOffset={Platform.OS === 'ios' ? -64 : -10}>
+            <KeyboardAvoidingView
+              behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+              style={{ flex: 1 }}
+              keyboardVerticalOffset={Platform.OS === 'ios' ? -64 : -10}
+            >
               <StatusBar style={colorScheme === 'dark' ? 'light' : 'dark'} backgroundColor="#ffffff" animated={true} />
-              <Navigation colorScheme={colorScheme} />
+                <Navigation colorScheme={colorScheme} />
             </KeyboardAvoidingView>
           </PersistGate>
         </Provider>

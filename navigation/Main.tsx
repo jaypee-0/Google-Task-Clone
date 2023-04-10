@@ -1,19 +1,18 @@
 import React from 'react'
-import { StyleSheet, Dimensions, Image, View, Platform, ColorSchemeName } from 'react-native'
-import { DarkTheme, DefaultTheme, NavigationContainer } from '@react-navigation/native'
-import { Entypo, FontAwesome, FontAwesome5 } from '@expo/vector-icons'
-import { BlurView } from 'expo-blur';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
+import { ColorSchemeName } from 'react-native'
+import { NavigationContainer } from '@react-navigation/native'
+import { FontAwesome } from '@expo/vector-icons'
 import { CardStyleInterpolators, createStackNavigator } from '@react-navigation/stack'
 import { RootStackParamList, RootTabParamList } from '../types'
 
-// Bottom Tab Screens
 import LinkingConfiguration from './LinkingConfiguration'
-import TabTwoScreen from '../screens/Main/BottomTabs/TabTwoScreen'
-import TabThreeScreen from '../screens/Main/BottomTabs/TabThreeScreen'
-import TabFourScreen from '../screens/Main/BottomTabs/TabFourScreen'
+import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs'
 
-
+// Screens
+import NewList from '../screens/TopTabs/NewList'
+import MyTasks from '../screens/TopTabs/MyTasks'
+import Favourites from '../screens/TopTabs/Favourites'
+import Home from '../screens/Home'
 
 export default function Main({ colorScheme }: { colorScheme: ColorSchemeName }) {
   return (
@@ -26,10 +25,10 @@ export default function Main({ colorScheme }: { colorScheme: ColorSchemeName }) 
 const Stack = createStackNavigator<RootStackParamList>()
 function RootNavigator() {
   return (
-    <Stack.Navigator initialRouteName="BottomTabs">
+    <Stack.Navigator initialRouteName="Home">
       <Stack.Screen
-        name="BottomTabs"
-        component={BottomTabNavigator}
+        name="Home"
+        component={Home}
         options={{
           headerShown: false,
           cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS
@@ -47,63 +46,47 @@ function RootNavigator() {
   )
 }
 
-const BottomTab = createBottomTabNavigator<RootTabParamList>()
-function BottomTabNavigator() {
+const Tab = createMaterialTopTabNavigator<RootTabParamList>()
+export const TopNavigator = () => {
   return (
-    <BottomTab.Navigator
-      initialRouteName="Home"
+    <Tab.Navigator
+      initialRouteName={'MyTasks'}
       screenOptions={{
-        tabBarStyle: {
-          position: 'absolute',
-          height: 65,
-          borderTopColor: '#D9D9D9',
-          width: '94%',
-          borderWidth: 10,
-          marginLeft: '3%',
-          marginRight: '3%',
-          backgroundColor: 'transparent',
-          marginBottom: 10,
-          borderRadius: 50,
-          overflow: 'hidden',
-          display: 'flex',
-          margin: 'auto',
+        tabBarIndicatorStyle: { backgroundColor: '#2F80ED', width: 50, marginLeft: 30 },
+        tabBarLabelStyle: {
+          fontSize: 18,
+          fontWeight: '500',
+          textTransform: 'none',
+          fontFamily: 'DarkerGrotesque_700Bold'
         },
-        tabBarActiveBackgroundColor: '#f2f2f1',
-        tabBarInactiveBackgroundColor: '#f2f2f1',
-        tabBarLabelStyle: { fontSize: 12, borderColor: 'unset', borderWidth: 0, display: 'none' },
-        tabBarActiveTintColor: '#f2f2f1',
-        tabBarInactiveTintColor: '#f2f2f1',
-        tabBarShowLabel: false,
-        tabBarBackground: () => (
-          <BlurView tint="light" intensity={100} style={StyleSheet.absoluteFill} />
-        ),
+        tabBarActiveTintColor: '#2F80ED',
+        tabBarInactiveTintColor: '#E0E0E0'
       }}
-      sceneContainerStyle={{ backgroundColor: 'transparent' }}
     >
-      <BottomTab.Screen
-        name="Coop"
-        component={TabTwoScreen}
+      <Tab.Screen
+        component={Favourites}
+        name="Favourites"
+        options={({ route }) => ({
+          tabBarIcon: ({ focused, color }) => {
+            return <FontAwesome name="star" size={focused ? 24 : 20} color={color} />
+          },
+          tabBarShowLabel: false
+        })}
+      />
+      <Tab.Screen
+        component={MyTasks}
+        name="MyTasks"
         options={{
-          headerShown: false,
-          tabBarIcon: ({ color, focused }) => <FontAwesome5 name="weight-hanging" size={24} color={focused?"#643DCD":"#292D3260"} />
+          tabBarLabel: 'My Tasks'
         }}
       />
-      <BottomTab.Screen
-        name="Balance"
-        component={TabThreeScreen}
+      <Tab.Screen
+        component={NewList}
+        name="NewList"
         options={{
-          headerShown: false,
-          tabBarIcon: ({ color, focused }) => <Entypo name="wallet" size={24} color={focused?"#643DCD":"#292D3260"} />
+          tabBarLabel: `+ New list`
         }}
       />
-      <BottomTab.Screen
-        name="Profile"
-        component={TabFourScreen}
-        options={{
-          headerShown: false,
-          tabBarIcon: ({ color, focused }) => <FontAwesome name="users" size={24} color={focused?"#643DCD":"#292D3260"} />
-        }}
-      />
-    </BottomTab.Navigator>
+    </Tab.Navigator>
   )
 }
