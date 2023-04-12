@@ -28,7 +28,7 @@
         "foregroundImage": "./assets/images/icon.png",
         "backgroundColor": "#000000"
       },
-      "googleServicesFile": "",
+      "googleServicesFile": "/google-services.json",
       "package": "com.jaypee.gtc"
     },
     "plugins": [
