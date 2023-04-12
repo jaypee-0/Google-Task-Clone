@@ -4,15 +4,12 @@ import tw from 'twrnc'
 import { useDispatch, useSelector } from 'react-redux'
 import { selectStarred, selectTasks } from '../../slices/taskSlice'
 import { FlatList } from 'react-native-gesture-handler'
-import { FontAwesome5 } from '@expo/vector-icons'
+import { AntDesign, FontAwesome5 } from '@expo/vector-icons'
 import Colors from '../../constants/Colors'
 
 const Favourites = () => {
   const starImage = require('../../assets/images/star.png')
-
-  const dispatch = useDispatch()
   const STARRED = useSelector(selectStarred)
-  console.log(STARRED, 'Starred')
 
   const Item = ({ title, description, uid }: any) => {
     return (
@@ -40,7 +37,7 @@ const Favourites = () => {
         </View>
 
         <TouchableOpacity style={tw``}>
-          <FontAwesome5 name="star" color={false ? Colors.primary : Colors.secondary} size={24} />
+                  <AntDesign name="star" size={24} color="#2F80ED" style={tw``} />
         </TouchableOpacity>
       </TouchableOpacity>
     )

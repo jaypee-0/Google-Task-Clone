@@ -176,9 +176,7 @@ const Home = () => {
   }
   const Item = ({ title, icon }: any) => (
     <TouchableOpacity
-      style={tw`px-4 bg-[${
-        currentRoute === 'Starred' ? '#00bfff20' : ''
-      }] py-3 mb-[2px] rounded-r-full flex flex-row items-center`}
+      style={tw`px-4 bg-[#00bfff20'] py-3 mb-[2px] rounded-r-full flex flex-row items-center`}
     >
       <Entypo
         name={'star'}
