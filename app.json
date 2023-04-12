@@ -19,20 +19,19 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true,
-      "googleServicesFile": "",
-      "useFrameworks": "static"
+      "supportsTablet": true
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/icon.png",
         "backgroundColor": "#000000"
       },
-      "googleServicesFile": "/google-services.json",
+      "googleServicesFile": "./google-services.json",
       "package": "com.jaypee.gtc"
     },
     "plugins": [
-      "@react-native-firebase/app"
+      "@react-native-firebase/app",
+      "@react-native-google-signin/google-signin"
     ],
     "web": {
       "favicon": "./assets/images/favicon.png"

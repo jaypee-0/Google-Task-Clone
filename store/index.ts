@@ -4,6 +4,7 @@ import { combineReducers } from "redux";
 import { persistReducer } from "redux-persist";
 import { setupListeners } from '@reduxjs/toolkit/query'
 import userReducer from "../slices/userSlice";
+import tasksReducer from "../slices/taskSlice";
 import thunk from "redux-thunk";
 import { persistStore } from "redux-persist";
 
@@ -14,6 +15,7 @@ const persistConfig = {
 
 const reducers = combineReducers({
     user: userReducer,
+    tasks: tasksReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, reducers)

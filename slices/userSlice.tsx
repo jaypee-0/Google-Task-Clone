@@ -23,13 +23,13 @@ export const userSlice = createSlice({
     name: "user",
     initialState,
     reducers: {
-        setUserDoc: (state, action) => {
+        setUser: (state, action) => {
             state.user = action.payload
         }
     }
 });
 
-export const { setUserDoc  } = userSlice.actions;
+export const { setUser } = userSlice.actions;
 
 export const selectUser = (state:any) => state.user;
 

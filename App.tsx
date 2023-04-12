@@ -19,6 +19,9 @@ import * as SplashScreen from 'expo-splash-screen'
 import { persistor, store } from './store'
 import { KeyboardAvoidingView, Platform } from 'react-native'
 import { PersistGate } from 'redux-persist/integration/react'
+import {
+  BottomSheetModalProvider,
+} from '@gorhom/bottom-sheet';
 
 SplashScreen.preventAutoHideAsync()
 export default function App() {
@@ -43,18 +46,24 @@ export default function App() {
     }, 2000)
     return (
       <SafeAreaProvider>
-        <Provider store={store}>
-          <PersistGate loading={null} persistor={persistor}>
-            <KeyboardAvoidingView
-              behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-              style={{ flex: 1 }}
-              keyboardVerticalOffset={Platform.OS === 'ios' ? -64 : -10}
-            >
-              <StatusBar style={colorScheme === 'dark' ? 'light' : 'dark'} backgroundColor="#ffffff" animated={true} />
+        <BottomSheetModalProvider>
+          <Provider store={store}>
+            <PersistGate loading={null} persistor={persistor}>
+              <KeyboardAvoidingView
+                behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+                style={{ flex: 1 }}
+                keyboardVerticalOffset={Platform.OS === 'ios' ? -64 : -10}
+              >
+                <StatusBar
+                  style={colorScheme === 'dark' ? 'light' : 'dark'}
+                  backgroundColor="#ffffff"
+                  animated={true}
+                />
                 <Navigation colorScheme={colorScheme} />
-            </KeyboardAvoidingView>
-          </PersistGate>
-        </Provider>
+              </KeyboardAvoidingView>
+            </PersistGate>
+          </Provider>
+        </BottomSheetModalProvider>
       </SafeAreaProvider>
     )
   }

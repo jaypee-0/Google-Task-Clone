@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "512827924182",
+    "project_id": "task-clone-1ee6b",
+    "storage_bucket": "task-clone-1ee6b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:512827924182:android:d132b891ccda10952b3377",
+        "android_client_info": {
+          "package_name": "com.jaypee.gtc"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "512827924182-6u8v22fco3c4nd5uul1fliedju78ht6t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBZdv8DGqegWvG02kX19tE9133-xxNFmcQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "512827924182-6u8v22fco3c4nd5uul1fliedju78ht6t.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
