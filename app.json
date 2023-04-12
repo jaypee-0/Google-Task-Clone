@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "google-tasks-clone",
-    "slug": "sta-app",
+    "slug": "gtc",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
@@ -19,21 +19,27 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "googleServicesFile": "",
+      "useFrameworks": "static"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/icon.png",
         "backgroundColor": "#000000"
       },
-      "package": "com.jaypee.staapp"
+      "googleServicesFile": "",
+      "package": "com.jaypee.gtc"
     },
+    "plugins": [
+      "@react-native-firebase/app"
+    ],
     "web": {
       "favicon": "./assets/images/favicon.png"
     },
     "extra": {
       "eas": {
-        "projectId": "1c82bbd8-30a7-4472-a29a-d95fc5500a01"
+        "projectId": "56882456-6b33-46da-84aa-c5bf35f12e05"
       }
     }
   }

@@ -1,7 +1,7 @@
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
-import React from 'react'
-import tw from 'twrnc'
+import { Text, TouchableOpacity, View } from 'react-native'
 import { FontAwesome5 } from '@expo/vector-icons'
+import tw from 'twrnc'
+import React from 'react'
 import Colors from '../../constants/Colors'
 
 const MyTasks = () => {
@@ -36,5 +36,3 @@ const MyTasks = () => {
 }
 
 export default MyTasks
-
-const styles = StyleSheet.create({})

@@ -8,6 +8,90 @@ import { Entypo } from '@expo/vector-icons'
 
 const Home = () => {
   const defaultImage = require('../assets/images/user.png')
+
+  
+
+//   const [signInWithGoogle, user] =
+//   useSignInWithGoogle(auth);
+
+//   const loginWithGoogleHandler = () => {
+//     signInWithGoogle([""], { prompt: "select_account" })
+//         .then((res: any) => {
+//             if (res) {
+//                 const userQuery = query(
+//                     userRef,
+//                     where("uid", "==", res.user.uid)
+//                 );
+//                 const ref = doc(
+//                     db,
+//                     "users",
+//                     res.user.uid
+//                 );
+//                 getDoc(ref)
+//                     .then((data: any) => {
+//                         if (data.data()) {
+//                             res &&
+//                                 router.push("/store");
+//                         } else {
+//                             const docRef = doc(
+//                                 db,
+//                                 "users",
+//                                 res.user.uid
+//                             );
+//                             const data = {
+//                                 email:
+//                                     res.user.email &&
+//                                     res.user.email,
+//                                 name:
+//                                     res.user
+//                                         .displayName &&
+//                                     res.user
+//                                         .displayName,
+//                                 pic:
+//                                     res.user.photoURL &&
+//                                     res.user.photoURL,
+//                                 role: "",
+//                                 uid:
+//                                     res.user.uid &&
+//                                     res.user.uid,
+//                                 phoneNo: ""
+//                             };
+//                             setDoc(docRef, data).then(
+//                                 () => {
+//                                     dispatch(
+//                                         setUser({
+//                                             name: res
+//                                                 ?.user
+//                                                 .displayName,
+//                                             pic: res
+//                                                 ?.user
+//                                                 .photoURL,
+//                                             email: res
+//                                                 ?.user
+//                                                 .email,
+//                                             phoneNo:
+//                                                 res
+//                                                     ?.user
+//                                                     .phoneNumber,
+//                                             uid: res
+//                                                 ?.user
+//                                                 .uid
+//                                         })
+//                                     );
+//                                     res &&
+//                                         router.push(
+//                                             "/store"
+//                                         );
+//                                 }
+//                             );
+//                         }
+//                     })
+//                     .catch((data: any) => {});
+//             }
+//         })
+//         .catch((e) => {});
+// };
+
   return (
     <>
       <View
@@ -31,6 +115,11 @@ const Home = () => {
         <TouchableOpacity>
           <Entypo name="menu" size={28} color="#00000070" />
         </TouchableOpacity>
+
+        <TouchableOpacity>
+
+        </TouchableOpacity>
+
         <TouchableOpacity>
           <Entypo name="plus" size={28} color="#00000070" />
         </TouchableOpacity>
